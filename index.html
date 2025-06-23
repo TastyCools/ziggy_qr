@@ -3,79 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ziggy QR</title>
-    <style>
-        body {
-            font-family: system-ui, sans-serif;
-            background: #f4f6fb;
-            color: #222;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        header {
-            background: #5576ff;
-            color: #fff;
-            padding: 1.5rem 2rem;
-            text-align: center;
-        }
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        .container {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(55,100,255,0.07);
-            padding: 2rem 2.5rem;
-            max-width: 400px;
-            width: 100%;
-            margin-top: 2rem;
-            text-align: center;
-        }
-        footer {
-            background: #e9eefa;
-            color: #777;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-        }
-        a {
-            color: #5576ff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 500px) {
-            .container {
-                padding: 1rem;
-            }
-        }
-    </style>
+    <title>Ziggy</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Ziggy QR</h1>
-        <p>A simple QR code project</p>
+        <h1 data-i18n="page-title" class="header-title">ZIGGY</h1>
+        <p data-i18n="page-subtitle" class="header-subtitle">Am I lost? <b data-i18n="no-answer" class="no-answer">NO</b></p>
     </header>
     <main>
-        <div class="container">
-            <h2>Welcome!</h2>
-            <p>This is the home page for your Ziggy QR project.</p>
-            <p>
-                To get started, edit <code>index.html</code>.<br>
-                You can add more features, styles, or scripts as you wish!
-            </p>
+        <img src="images/photo.jpg" alt="Photo" class="photo">
+        <h1 data-i18n="description" class="description">ZIGGY</h1>
+        
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1N6L55ILmQKaw1MCjIa6rcfUsGbL7V_E&ehbc=2E312F" 
+                    class="map-iframe"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </main>
     <footer>
-        &copy; 2025 Ziggy QR &mdash; <a href="https://github.com/TastyCools/ziggy_qr">GitHub</a>
+        <span data-i18n="copyright">&copy; 2025 Ziggy QR</span>
     </footer>
+
+    <script>
+        // Translation objects
+        const translations = {
+            en: {
+                'page-title': 'ZIGGY',
+                'page-subtitle': 'Am I lost? <b data-i18n="no-answer" class="no-answer">NO</b>',
+                'no-answer': 'NO',
+                'description': 'You can usually find me here',
+                'copyright': '&copy; 2025 Ziggy QR'
+            },
+            fr: {
+                'page-title': 'ZIGGY',
+                'page-subtitle': 'Suis-je perdu ? <b data-i18n="no-answer" class="no-answer">NON</b>',
+                'no-answer': 'NON',
+                'description': 'Vous pouvez habituellement me trouver ici',
+                'copyright': '&copy; 2025 Ziggy QR'
+            }
+        };
+
+        // Function to detect browser language
+        function getBrowserLanguage() {
+            const lang = navigator.language || navigator.userLanguage;
+            // Check if it's French (fr, fr-FR, fr-CA, etc.)
+            if (lang.toLowerCase().startsWith('fr')) {
+                return 'fr';
+            }
+            // Default to English
+            return 'en';
+        }
+
+        // Function to apply translations
+        function applyTranslations(language) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            const langTranslations = translations[language] || translations['en'];
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (langTranslations[key]) {
+                    element.innerHTML = langTranslations[key];
+                }
+            });
+            
+            // Update the html lang attribute
+            document.documentElement.lang = language;
+        }
+
+        // Initialize localization when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const browserLang = getBrowserLanguage();
+            applyTranslations(browserLang);
+        });
+    </script>
 </body>
 </html>
