@@ -18,12 +18,12 @@
 </head>
 <body>
     <header>
-        <h1 data-i18n="page-title" class="header-title">ZIGGY</h1>
-        <p data-i18n="page-subtitle" class="header-subtitle">Am I lost? <b data-i18n="no-answer" class="no-answer">NO</b></p>
+        <h1 data-localize="page-title" class="header-title">ZIGGY</h1>
+        <p data-localize="page-subtitle" class="header-subtitle">Am I lost? <b data-localize="no-answer" class="no-answer">NO</b></p>
     </header>
     <main>
         <img src="images/photo.jpg" alt="Photo" class="photo">
-        <h1 data-i18n="description" class="description">ZIGGY</h1>
+        <h1 data-localize="description" class="description">ZIGGY</h1>
         
         <div class="map-container">
             <iframe src="https://www.google.com/maps/d/embed?mid=1N6L55ILmQKaw1MCjIa6rcfUsGbL7V_E&ehbc=2E312F" 
@@ -35,7 +35,7 @@
         </div>
     </main>
     <footer>
-        <span data-i18n="copyright">&copy; 2025 Ziggy QR</span>
+        <span data-localize="copyright">&copy; 2025 Ziggy QR</span>
     </footer>
 
     <script src="translations.js"></script>
@@ -53,11 +53,11 @@
 
         // Function to apply translations
         function applyTranslations(language) {
-            const elements = document.querySelectorAll('[data-i18n]');
+            const elements = document.querySelectorAll('[data-localize]');
             const langTranslations = translations[language] || translations['en'];
             
             elements.forEach(element => {
-                const key = element.getAttribute('data-i18n');
+                const key = element.getAttribute('data-localize');
                 if (langTranslations[key]) {
                     element.innerHTML = langTranslations[key];
                 }
