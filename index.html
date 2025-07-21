@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Ziggy</title>
     <link rel="stylesheet" href="styles.css">
     
@@ -19,7 +20,17 @@
 <body>
     <header>
         <h1 data-localize="page-title" class="header-title">ZIGGY</h1>
-        <p data-localize="page-subtitle" class="header-subtitle">Am I lost? <b data-localize="no-answer" class="no-answer">NO</b></p>
+        <p class="header-subtitle">
+            <span data-localize="status-question">Am I lost?</span> 
+            <b data-localize="no-answer" class="no-answer">NO</b>
+            <!--
+            <b data-localize="yes-answer" class="yes-answer">YES</b>
+            -->
+        </p>
+        <p class="header-subtitle">
+            <span data-localize="contact-text">Contact owner at:</span> 
+            <a href="tel:5146777906" class="phone-link">514-677-7906</a>
+        </p>
     </header>
     <main>
         <img src="images/photo.jpg" alt="Photo" class="photo">
@@ -39,39 +50,6 @@
     </footer>
 
     <script src="translations.js"></script>
-    <script>
-        // Function to detect browser language
-        function getBrowserLanguage() {
-            const lang = navigator.language || navigator.userLanguage;
-            // Check if it's French (fr, fr-FR, fr-CA, etc.)
-            if (lang.toLowerCase().startsWith('fr')) {
-                return 'fr';
-            }
-            // Default to English
-            return 'en';
-        }
-
-        // Function to apply translations
-        function applyTranslations(language) {
-            const elements = document.querySelectorAll('[data-localize]');
-            const langTranslations = translations[language] || translations['en'];
-            
-            elements.forEach(element => {
-                const key = element.getAttribute('data-localize');
-                if (langTranslations[key]) {
-                    element.innerHTML = langTranslations[key];
-                }
-            });
-            
-            // Update the html lang attribute
-            document.documentElement.lang = language;
-        }
-
-        // Initialize localization when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            const browserLang = getBrowserLanguage();
-            applyTranslations(browserLang);
-        });
-    </script>
+    <script src="translator.js"></script>
 </body>
 </html>

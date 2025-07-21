@@ -2,15 +2,19 @@
 const translations = {
     en: {
         'page-title': 'ZIGGY',
-        'page-subtitle': 'Am I lost? <b data-localize="no-answer" class="no-answer">NO</b>',
+        'status-question': 'Am I lost?',
         'no-answer': 'NO',
+        'yes-answer': 'YES',
+        'contact-text': 'Contact owner at:',
         'description': 'You can usually find me in this area:',
         'copyright': '&copy; 2025 Ziggy QR'
     },
     fr: {
         'page-title': 'ZIGGY',
-        'page-subtitle': 'Suis-je perdu ? <b data-localize="no-answer" class="no-answer">NON</b>',
+        'status-question': 'Suis-je perdu ?',
         'no-answer': 'NON',
+        'yes-answer': 'OUI',
+        'contact-text': 'Contactez le propriétaire au:',
         'description': 'Vous pouvez habituellement me trouver dans ce secteur:',
         'copyright': '&copy; 2025 Ziggy QR'
     }
