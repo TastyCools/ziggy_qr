@@ -87,6 +87,26 @@ footer {
     font-size: 0.9rem;
 }
 
+.discussion-link {
+    margin-bottom: 0.5rem;
+}
+
+.discussion-link a {
+    display: inline-block;
+    background: #5576ff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.discussion-link a:hover {
+    background: #4460e6;
+    text-decoration: none;
+}
+
 /* Link Styles */
 a {
     color: #5576ff;

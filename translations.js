@@ -7,6 +7,7 @@ const translations = {
         'yes-answer': 'YES',
         'contact-text': 'Contact owner at:',
         'description': 'You can usually find me in this area:',
+        'discussion-link': 'Share comments or pictures!',
         'copyright': '&copy; 2025 Ziggy QR'
     },
     fr: {
@@ -16,6 +17,7 @@ const translations = {
         'yes-answer': 'OUI',
         'contact-text': 'Contactez le propriétaire au:',
         'description': 'Vous pouvez habituellement me trouver dans ce secteur:',
+        'discussion-link': 'Partagez vos commentaires ou images!',
         'copyright': '&copy; 2025 Ziggy QR'
     }
 }; 
